@@ -4,6 +4,6 @@ resource "aws_internet_gateway" "main" {
 
     tags = {
 
-        Name = "main"
+        Name = "ho_k8_igw"
     }
 }

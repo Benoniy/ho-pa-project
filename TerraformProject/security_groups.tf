@@ -1,6 +1,6 @@
 resource "aws_security_group" "main" {
-    name = "security_port_ho_project"
-    description = "Allow inbound traffic"
+    name = "ho_k8_sec_group"
+    description = "Control traffic for all worker and master nodes"
     vpc_id = aws_vpc.main.id
 
     ingress {
@@ -24,15 +24,22 @@ resource "aws_security_group" "main" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 
+    ingress {
+        from_port  = 0
+        to_port = 0
+        protocol = -1
+        cidr_blocks = ["69.69.0.0/16"]
+    }
+
     egress {
         from_port = 0
-        to_port = 65535
-        protocol = "tcp"
+        to_port = 0
+        protocol = -1
         cidr_blocks = ["0.0.0.0/0"]
     }
 
     tags = {
-        Name = "ho_project_security_port"
+        Name = "ho_k8_sec_group"
     }
 }
 
@@ -41,6 +48,6 @@ resource "aws_default_security_group" "default" {
 
     
   tags = {
-      Name = "ho_default_security_group"
+      Name = "ho_k8_default_sec_group"
   }
 }

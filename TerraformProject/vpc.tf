@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
     instance_tenancy = "default"
 
     tags = {
-      Name = "ho_project_main"
+      Name = "ho_k8_project_vpc"
     }
 }
 

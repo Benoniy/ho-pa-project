@@ -11,7 +11,7 @@ resource "aws_subnet" "public_1" {
     map_public_ip_on_launch = true
 
     tags = {
-      Name = "public-eu-west-1a"
+      Name = "ho_k8_public_subnet_eu-west-1a"
     }
 }
 
@@ -28,7 +28,7 @@ resource "aws_subnet" "public_2" {
     map_public_ip_on_launch = true
 
     tags = {
-      Name = "ho_project_public-eu-west-1b"
+      Name = "ho_k8_public_subnet_eu-west-1b"
     }
 }
 
@@ -41,7 +41,7 @@ resource "aws_subnet" "private_1a" {
     availability_zone = "eu-west-1a"
 
     tags = {
-      Name = "ho_masternode_project_private-eu-west-1a"
+      Name = "ho_k8_private_subnet_eu-west-1a"
     }
 }
   
