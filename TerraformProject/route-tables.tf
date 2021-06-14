@@ -8,6 +8,6 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "ho_public_rt"
+    Name = "ho_k8_public_rt"
   }
 }
