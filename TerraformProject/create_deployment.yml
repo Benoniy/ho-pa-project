@@ -3,23 +3,23 @@ kind: Deployment
 
 # Describes the deployment
 metadata:
-  name: ItJobsWatch
+  name: it-jobs-watch
   labels:
     app: ho-project
-    tier: ItJobsWatch
+    tier: it-jobs-watch
 
 spec:
   replicas: 3
 
-  # Selects the template that has the label 'tier: ItJobsWatch'
+  # Selects the template that has the label 'tier: it-jobs-watch'
   selector:
     matchLabels:
-      tier: ItJobsWatch
+      tier: it-jobs-watch
 
   template:
     metadata:
       labels:
-        tier: ItJobsWatch
+        tier: it-jobs-watch
     spec:
       affinity:
         nodeAffinity:
