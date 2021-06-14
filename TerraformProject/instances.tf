@@ -2,10 +2,10 @@ resource "aws_instance" "firstInstance" {
     ami = "ami-015e12b7e80c0bf5d"
     key_name = "ho-pa-project"
     instance_type = "t2.micro"
-    subnet_id = aws_subnet.public_1.id
-    associate_public_ip_address = true
+    subnet_id = aws_subnet.public_1.id 
+    associate_public_ip_address = false
     vpc_security_group_ids = [aws_security_group.main.id]
-
+    monitoring = true
     provisioner "remote-exec" {
         inline = [
           "sudo kubeadm join 69.69.69.194:6443 --token 26t0sl.taobbhyry60ulthi --discovery-token-ca-cert-hash sha256:1ed312efc9f6b62c9c94c56d086a259f989bddd54f337937cfd60f5a8850e35a",
@@ -32,7 +32,7 @@ resource "aws_instance" "secondInstance" {
     key_name = "ho-pa-project"
     instance_type = "t2.micro"
     subnet_id = aws_subnet.public_2.id
-    associate_public_ip_address = true
+    associate_public_ip_address = false
     vpc_security_group_ids = [aws_security_group.main.id]
     tags = {
         Name = "ho_k8_worker_2"
@@ -46,7 +46,7 @@ resource "aws_instance" "privateInstance" {
     key_name = "ho-pa-project"
     instance_type = "t2.micro"
     subnet_id = aws_subnet.private_1a.id
-    associate_public_ip_address = true
+    associate_public_ip_address = false
     private_ip = "69.69.69.194"
     vpc_security_group_ids = [aws_security_group.main.id]
     
