@@ -5,7 +5,6 @@ resource "aws_instance" "firstInstance" {
     subnet_id = aws_subnet.public_1.id
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.main.id]
-    monitoring = true
 
     provisioner "file" {
         source      = "~/tmp/joincmd.sh"
@@ -44,11 +43,11 @@ resource "aws_instance" "secondInstance" {
     ami = "ami-015e12b7e80c0bf5d"
     key_name = "ho-pa-project"
     instance_type = "t2.micro"
-
+    
     subnet_id = aws_subnet.public_2.id
     associate_public_ip_address = true
     vpc_security_group_ids = [aws_security_group.main.id]
-
+    
     provisioner "file" {
         source      = "~/tmp/joincmd.sh"
         destination = "/home/ubuntu/join.sh"
@@ -57,7 +56,7 @@ resource "aws_instance" "secondInstance" {
     provisioner "remote-exec" {
         on_failure = continue
         inline = [
-            "sudo chmod +x ~/join.sh",
+            "sudo chmod +x ~/join.sh", 
             "sudo reboot now"
         ]
     }
@@ -165,7 +164,7 @@ resource "null_resource" "provision_rs2"{
 }
 
 resource "null_resource" "provision_k8"{
-
+    
     provisioner "file" {
         source      = "./create_deployment.yml"
         destination = "/home/ubuntu/create_deployment.yml"
