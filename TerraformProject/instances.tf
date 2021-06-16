@@ -166,7 +166,7 @@ resource "null_resource" "provision_rs2"{
 resource "null_resource" "provision_k8"{
     
     provisioner "file" {
-        source      = "./create_deployment.yml"
+        source      = "../Kubernetes/create_deployment.yml"
         destination = "/home/ubuntu/create_deployment.yml"
     }
 
