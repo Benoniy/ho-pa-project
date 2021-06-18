@@ -44,11 +44,11 @@ resource "aws_instance" "secondInstance" {
 }
 
 resource "local_file" "master_ids" {
-    content  = aws_instance.privateInstance.id
+    content  = aws_instance.privateInstance.public_ip
     filename = "/terraFiles/master_ids"
 }
 
 resource "local_file" "worker_ids" {
-    content  = "${aws_instance.firstInstance.id}\n${aws_instance.secondInstance.id}"
+    content  = "${aws_instance.firstInstance.public_ip}\n${aws_instance.secondInstance.public_ip}"
     filename = "/terraFiles/worker_ids"
 }
