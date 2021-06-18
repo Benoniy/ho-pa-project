@@ -45,10 +45,10 @@ resource "aws_instance" "secondInstance" {
 
 resource "local_file" "master_ids" {
     content  = aws_instance.privateInstance.id
-    filename = "/home/ubuntu/terraFiles/master_ids"
+    filename = "/terraFiles/master_ids"
 }
 
 resource "local_file" "worker_ids" {
     content  = "${aws_instance.firstInstance.id}\n${aws_instance.secondInstance.id}"
-    filename = "/home/ubuntu/terraFiles/worker_ids"
+    filename = "/terraFiles/worker_ids"
 }
