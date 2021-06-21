@@ -1,7 +1,7 @@
 resource "aws_instance" "privateInstance" {
     ami = "ami-0308a1cade9976b8e"
     key_name = "ho-pa-project"
-    instance_type = "t2.micro"
+    instance_type = "t2.medium"
     subnet_id = aws_subnet.private_1a.id
     associate_public_ip_address = true
     private_ip = "69.69.69.194"
