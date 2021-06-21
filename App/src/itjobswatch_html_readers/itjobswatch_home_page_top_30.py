@@ -7,7 +7,7 @@ class ItJobsWatchHomePageTop30:
 
     def __init__(self, file_or_url_address):
         self._html_manager = HttpManager(file_or_url_address)
-        self.home_page_html = BeautifulSoup(self._html_manager.html, 'html.parser')
+        self.home_page_html = BeautifulSoup(self._html_manager.html, 'lxml')
 
     def _get_top_30_table(self):
         return self.home_page_html.find('table', class_="results")
@@ -27,7 +27,7 @@ class ItJobsWatchHomePageTop30:
     def get_top_30_table_elements_into_array(self):
         job_list = []
 
-        for elements in self._get_top_30_table().find_all('tr'):
+        for elements in self._get_top_30_table().find_all('tr')[0:31]:
             job = []
             for job_row_items in elements.find_all('td'):
                 if job_row_items.attrs['class'] != ['c1']:
