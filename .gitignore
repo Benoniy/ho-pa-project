@@ -5,5 +5,5 @@ TerraformProject/providers.tf
 TerraformProject/.terraform.lock.hcl
 TerraformProject/terraform.tfstate
 TerraformProject/terraform.tfstate.backup
-TerraformProject/master_ids
-TerraformProject/worker_ids
+.idea/
+venv/
