@@ -12,6 +12,8 @@ resource "aws_instance" "privateInstance" {
     }
 }
 
+# Comment
+
 resource "aws_instance" "firstInstance" {
     ami = "ami-015e12b7e80c0bf5d"
     key_name = "ho-pa-project"
