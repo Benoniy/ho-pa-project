@@ -16,4 +16,5 @@ COPY  ./ /usr/src/app
 RUN mkdir /root/Downloads
 RUN touch /root/DownloadsItJobsWatchTop30.csv
 
-CMD [ "python",  "main.py"]
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
