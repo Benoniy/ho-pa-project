@@ -35,3 +35,4 @@ spec:
       containers:
       - name: ho-project
         image: arunpanesar42/ho_project:latest
+        imagePullPolicy: "Always"
