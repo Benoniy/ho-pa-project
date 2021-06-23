@@ -36,3 +36,7 @@ spec:
       - name: ho-project
         image: arunpanesar42/ho_project:latest
         imagePullPolicy: "Always"
+      dnsPolicy: "None"
+        dnsConfig:
+          nameservers:
+            - 1.1.1.1
