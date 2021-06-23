@@ -30,13 +30,13 @@ spec:
                 operator: NotIn
                 values:
                 - ip-69-69-69-194
-                
+
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 1.1.1.1
       # Here you can define a pod like before
       containers:
       - name: ho-project
         image: arunpanesar42/ho_project:latest
         imagePullPolicy: "Always"
-      dnsPolicy: "None"
-        dnsConfig:
-          nameservers:
-            - 1.1.1.1
