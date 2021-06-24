@@ -12,7 +12,6 @@ resource "aws_instance" "privateInstance" {
     }
 }
 
-# comment
 
 resource "aws_instance" "firstInstance" {
     ami = "ami-015e12b7e80c0bf5d"
